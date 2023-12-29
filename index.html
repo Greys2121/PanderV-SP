@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullscreen Video Example</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+<video id="fullscreen-video" controls>
+  <source src="https://rr4---sn-vgqsrnsr.c.drive.google.com/videoplayback?expire=1703822432&ei=MBqOZaK7E_GZp84PjJ6O2Ac&ip=68.112.200.82&id=eb132cdfda78bb21&itag=22&source=webdrive&requiressl=yes&xpc=EghonaK1InoBAQ==&ttl=transient&susc=dr&driveid=1-bEYfo6OrMtKn8EQ06VRK_w_s5_Xhyzr&app=explorer&eaua=MLbuuyQ8g5M&mime=video/mp4&vprv=1&prv=1&dur=2925.017&lmt=1703811550190817&subapp=DRIVE_WEB_FILE_VIEWER&txp=0001224&sparams=expire,ei,ip,id,itag,source,requiressl,xpc,ttl,susc,driveid,app,eaua,mime,vprv,prv,dur,lmt&sig=AJfQdSswRQIhAMtJBNJsG0yuThhQkDWeIIbeTSngEPofWIlKFbIpeKJ0AiB3s6QokDyF4_1PY7ePPP6O1NlGcWV-o5cpu-06ZAKDjA==&cpn=zCpc5mqPD-V_4q1G&c=WEB_EMBEDDED_PLAYER&cver=1.20231217.00.00&redirect_counter=1&cm2rm=sn-vgqeze7z&fexp=24350138,24350146,24350148&req_id=97f77df7a272a3ee&cms_redirect=yes&cmsv=e&mh=BH&mm=34&mn=sn-vgqsrnsr&ms=ltu&mt=1703811392&mv=m&mvi=4&pl=20&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AAO5W4owRQIhALIMr_v9i3-rvLbCH7FfPYt3C6WZP6Inwx52mOsPq_3DAiB3z_J5N85g_s7FnfGO34NvexwBweFYy5MV13vNgKElNQ%3D%3D" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<script>
+  const video = document.getElementById('fullscreen-video');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Play the video and enter fullscreen when the page is loaded
+    video.play().then(() => {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.mozRequestFullScreen) {
+        video.mozRequestFullScreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      }
+    }).catch(error => {
+      console.error('Error playing the video:', error.message);
+    });
+  });
+</script>
+
+</body>
+</html>
